@@ -1,0 +1,34 @@
+{
+  "stage": 8,
+  "selected_by": "highest mean validation AUPRC over three fusion seeds",
+  "best_variant": "dense_fixed",
+  "comparison": [
+    {
+      "variant": "dense_learned",
+      "n": 3,
+      "mean_val_auprc": 0.5466488452400388,
+      "std_val_auprc": 0.00033456881606576654,
+      "mean_val_auroc": 0.8458329227029336,
+      "std_val_auroc": 0.0001642521599158897
+    },
+    {
+      "variant": "dense_fixed",
+      "n": 3,
+      "mean_val_auprc": 0.5480594026750502,
+      "std_val_auprc": 0.0005109897361149438,
+      "mean_val_auroc": 0.845931473998883,
+      "std_val_auroc": 3.2850431983144635e-05
+    },
+    {
+      "variant": "dense_age",
+      "n": 3,
+      "mean_val_auprc": 0.5465485147908208,
+      "std_val_auprc": 0.00012854727736717414,
+      "mean_val_auroc": 0.8456467702550289,
+      "std_val_auroc": 5.017986372493163e-05
+    }
+  ],
+  "previous_stage7_age_mean_ap": 0.5498,
+  "previous_stage6_ehr_only_mean_ap": 0.5511,
+  "caveat": "Earlier controls are exploratory validation benchmarks; test not accessed."
+}

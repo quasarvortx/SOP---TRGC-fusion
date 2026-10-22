@@ -1,0 +1,94 @@
+{
+  "stage": 11,
+  "scope": "validation_only",
+  "seed_list": [
+    42,
+    43,
+    44
+  ],
+  "encoder_training": "Independent seeds 42,43,44 (same ImageNet ResNet initial weights, independently fine-tuned)",
+  "fusion_training": "One separately trained safe_age head per independently trained EHR/CXR pair",
+  "per_seed": [
+    {
+      "seed": 42,
+      "model": "ehr_only",
+      "auprc": 0.546325802571843,
+      "auroc": 0.8454387175191354,
+      "brier": 0.13161867080622877
+    },
+    {
+      "seed": 42,
+      "model": "safe_age_fusion",
+      "auprc": 0.5464505119690372,
+      "auroc": 0.8455044183831018,
+      "brier": 0.1299712434008711
+    },
+    {
+      "seed": 43,
+      "model": "ehr_only",
+      "auprc": 0.5262435619175312,
+      "auroc": 0.8278965868401169,
+      "brier": 0.10757267794018459
+    },
+    {
+      "seed": 43,
+      "model": "safe_age_fusion",
+      "auprc": 0.5266333302068296,
+      "auroc": 0.8279622877040832,
+      "brier": 0.10705783631877985
+    },
+    {
+      "seed": 44,
+      "model": "ehr_only",
+      "auprc": 0.5134470371305838,
+      "auroc": 0.8084819815380572,
+      "brier": 0.13818621086050467
+    },
+    {
+      "seed": 44,
+      "model": "safe_age_fusion",
+      "auprc": 0.5134306730159749,
+      "auroc": 0.8086462336979731,
+      "brier": 0.1367163133501567
+    }
+  ],
+  "mean_std": {
+    "ehr_only": {
+      "auprc_mean": 0.5286721338733193,
+      "auroc_mean": 0.8272724286324364,
+      "brier_mean": 0.12579251986897266,
+      "auprc_std": 0.01657337550240343,
+      "auroc_std": 0.018486272303927062,
+      "brier_std": 0.016116920472709666
+    },
+    "safe_age_fusion": {
+      "auprc_mean": 0.528838171730614,
+      "auroc_mean": 0.827370979928386,
+      "brier_mean": 0.12458179768993588,
+      "auprc_std": 0.016619970990657432,
+      "auroc_std": 0.018436205635514152,
+      "brier_std": 0.01554641144311173
+    }
+  },
+  "seed_ensemble": {
+    "ehr_auprc": 0.5630770697630478,
+    "fusion_auprc": 0.5629979369403145,
+    "ehr_auroc": 0.8417923195690024,
+    "fusion_auroc": 0.8423507769127164,
+    "ehr_brier": 0.11062613810262689,
+    "fusion_brier": 0.10913122085758545,
+    "delta_auprc": -7.913282273330768e-05,
+    "patient_cluster_bootstrap_95ci": [
+      -0.002359357854645103,
+      0.0015757833439074803
+    ],
+    "bootstrap_reps": 1000
+  },
+  "limitations": [
+    "Repeated use of validation for model development makes reported intervals exploratory.",
+    "Same underlying train/validation split and shared ImageNet initialization; three independent downstream seeds are not three datasets.",
+    "No calibration or final test evaluation performed in Stage11.",
+    "EHR head frozen during safe residual fusion; EHR-only control is the exact paired unimodal head.",
+    "Three seeds, not the five recommended for final deep ensemble."
+  ]
+}

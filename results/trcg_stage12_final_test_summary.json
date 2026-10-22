@@ -1,0 +1,151 @@
+{
+  "stage": 12,
+  "scope": "retrospective_benchmark_test",
+  "n": 1231,
+  "deaths": 180,
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "ensemble": {
+    "ehr": {
+      "temperature": 1.021991219915114,
+      "uncalibrated": {
+        "auprc": 0.4459052738032227,
+        "auroc": 0.8130827783063748,
+        "brier": 0.1110155025548788,
+        "log_loss": 0.36143085589357127
+      },
+      "calibrated": {
+        "auprc": 0.4459052738032227,
+        "auroc": 0.8130827783063748,
+        "brier": 0.11087751447684385,
+        "log_loss": 0.3607556894530004
+      }
+    },
+    "fusion": {
+      "temperature": 1.0436740294562754,
+      "uncalibrated": {
+        "auprc": 0.4464087313365799,
+        "auroc": 0.8133946505973146,
+        "brier": 0.10873740236799138,
+        "log_loss": 0.3550529109352347
+      },
+      "calibrated": {
+        "auprc": 0.4464087313365799,
+        "auroc": 0.8133946505973146,
+        "brier": 0.1084591837195717,
+        "log_loss": 0.3536169516979875
+      }
+    }
+  },
+  "per_seed": [
+    {
+      "seed": 42,
+      "model": "ehr",
+      "auprc": 0.4340644774512218,
+      "auroc": 0.8064806004863093,
+      "brier": 0.13372717797756195,
+      "log_loss": 0.4163818359375
+    },
+    {
+      "seed": 42,
+      "model": "fusion",
+      "auprc": 0.433638286102394,
+      "auroc": 0.8065387461676709,
+      "brier": 0.13213157653808594,
+      "log_loss": 0.41179367899894714
+    },
+    {
+      "seed": 43,
+      "model": "ehr",
+      "auprc": 0.4080291317634345,
+      "auroc": 0.7900465165450894,
+      "brier": 0.11377643793821335,
+      "log_loss": 0.37622785568237305
+    },
+    {
+      "seed": 43,
+      "model": "fusion",
+      "auprc": 0.40845656814289916,
+      "auroc": 0.7902685273284702,
+      "brier": 0.11300944536924362,
+      "log_loss": 0.3745020627975464
+    },
+    {
+      "seed": 44,
+      "model": "ehr",
+      "auprc": 0.37837461697382124,
+      "auroc": 0.773189554921239,
+      "brier": 0.15608321130275726,
+      "log_loss": 0.5822809338569641
+    },
+    {
+      "seed": 44,
+      "model": "fusion",
+      "auprc": 0.37896261714045093,
+      "auroc": 0.7730838355005815,
+      "brier": 0.1546587496995926,
+      "log_loss": 0.5749776363372803
+    },
+    {
+      "seed": 45,
+      "model": "ehr",
+      "auprc": 0.4238545538149472,
+      "auroc": 0.7977217464848293,
+      "brier": 0.11404413729906082,
+      "log_loss": 0.37787917256355286
+    },
+    {
+      "seed": 45,
+      "model": "fusion",
+      "auprc": 0.4251875338938697,
+      "auroc": 0.7989058039961939,
+      "brier": 0.11111430078744888,
+      "log_loss": 0.3769683539867401
+    },
+    {
+      "seed": 46,
+      "model": "ehr",
+      "auprc": 0.46603380750288453,
+      "auroc": 0.8113172639813933,
+      "brier": 0.11226925998926163,
+      "log_loss": 0.36812156438827515
+    },
+    {
+      "seed": 46,
+      "model": "fusion",
+      "auprc": 0.46596501297135573,
+      "auroc": 0.811253832328999,
+      "brier": 0.11192940175533295,
+      "log_loss": 0.367063045501709
+    }
+  ],
+  "paired_cluster_bootstrap": {
+    "method": "subject_cluster_bootstrap",
+    "replicates": 1500,
+    "seed": 12046,
+    "fusion_minus_ehr_auprc_95ci": [
+      -0.0024539662035591215,
+      0.003836690879411093
+    ],
+    "fusion_minus_ehr_auroc_95ci": [
+      -0.0005144429883264606,
+      0.0010591413794659855
+    ],
+    "fusion_minus_ehr_brier_95ci": [
+      -0.0031903874750171457,
+      -0.00163352312092437
+    ]
+  },
+  "calibration_source": "validation only; settings frozen before test inference",
+  "selected_architecture": "safe_age fusion and matched EHR-only; no test selection",
+  "caveats": [
+    "The benchmark test was inspected in earlier project stages; not a fresh blind test.",
+    "Bootstraps reflect patient resampling uncertainty, not model-selection or dataset-shift uncertainty.",
+    "Five independent training seeds share ImageNet initialization and the same split."
+  ]
+}

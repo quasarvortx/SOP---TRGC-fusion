@@ -1,0 +1,53 @@
+{
+  "stage": 12,
+  "scope": "validation_only",
+  "predefined_configuration": "safe_age; matched EHR anchor; five independent seeds 42-46",
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "validation_n": 490,
+  "validation_deaths": 73,
+  "validation": {
+    "ehr": {
+      "temperature": 1.021991219915114,
+      "uncalibrated": {
+        "auprc": 0.558340453764876,
+        "auroc": 0.8438618967839426,
+        "brier": 0.10489318478452982,
+        "log_loss": 0.33816919489840563
+      },
+      "calibrated": {
+        "auprc": 0.558340453764876,
+        "auroc": 0.8438618967839426,
+        "brier": 0.10477818515826773,
+        "log_loss": 0.3380898093857144
+      }
+    },
+    "fusion": {
+      "temperature": 1.0436740294562754,
+      "uncalibrated": {
+        "auprc": 0.5585251922084552,
+        "auroc": 0.8443218028317072,
+        "brier": 0.10282005447528697,
+        "log_loss": 0.3318913192816967
+      },
+      "calibrated": {
+        "auprc": 0.5585251922084552,
+        "auroc": 0.8443218028317072,
+        "brier": 0.10257349028768163,
+        "log_loss": 0.3315835154578527
+      }
+    },
+    "delta_fusion_minus_ehr_auprc_uncalibrated": 0.00018473844357924651
+  },
+  "temperature_fit": "unweighted validation NLL after equal-weight probability ensembling",
+  "limitations": [
+    "Repeatedly inspected validation cohort; no fresh hyperparameter search.",
+    "Five seeds share same ImageNet starting checkpoint and fixed patient split.",
+    "Test set evaluated separately on explicit request."
+  ]
+}

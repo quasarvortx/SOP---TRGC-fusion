@@ -1,0 +1,16 @@
+{
+  "temperatures": {
+    "ehr": 1.021991219915114,
+    "fusion": 1.0436740294562754
+  },
+  "stage": 12,
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "source": "validation_only",
+  "fitting": "unweighted NLL"
+}

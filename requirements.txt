@@ -1,0 +1,10 @@
+# Versions recorded from the completed research environment (Python 3.14.2).
+# Local torch/torchvision builds used the +cu128 CUDA variant.
+torch==2.11.0
+torchvision==0.26.0
+numpy==2.5.3
+pandas==3.0.5
+scipy==1.18.1
+scikit-learn==1.9.0
+Pillow==12.3.0
+tqdm==4.70.0

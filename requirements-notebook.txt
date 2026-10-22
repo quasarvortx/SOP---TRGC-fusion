@@ -1,0 +1,6 @@
+# Install requirements.txt first. These tools are for reviewing the notebook.
+jupyterlab
+ipykernel
+nbformat
+nbclient
+nbconvert

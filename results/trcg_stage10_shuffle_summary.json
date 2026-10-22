@@ -1,0 +1,82 @@
+{
+  "stage": 10,
+  "scope": "validation_only",
+  "n": 490,
+  "deaths": 73,
+  "fusion_seeds": [
+    42,
+    43,
+    44
+  ],
+  "permutations_per_mode": 100,
+  "shuffle_design": "permuted CXR embedding and CXR-derived entropy jointly; patient EHR, CXR age, anchor validity, and EHR quality unchanged",
+  "metrics": [
+    {
+      "variant": "stage7_safe_age",
+      "shuffle_mode": "all_patients",
+      "permutations": 100,
+      "observed_auprc": 0.5494556738566454,
+      "shuffled_auprc_mean": 0.5454333370343168,
+      "shuffled_auprc_p025": 0.5391977395369675,
+      "shuffled_auprc_p975": 0.5496599333248524,
+      "observed_minus_shuffled_auprc": 0.004022336822328554,
+      "observed_brier": 0.13050070469070887,
+      "shuffled_brier_mean": 0.1308146259833198,
+      "observed_minus_shuffled_brier": -0.00031392129261093027,
+      "mean_abs_prediction_change": 0.0031932339865942383,
+      "shuffled_fraction_at_least_observed_auprc": 0.04
+    },
+    {
+      "variant": "stage7_safe_age",
+      "shuffle_mode": "same_age_quartile",
+      "permutations": 100,
+      "observed_auprc": 0.5494556738566454,
+      "shuffled_auprc_mean": 0.5458222893167356,
+      "shuffled_auprc_p025": 0.5401894827268927,
+      "shuffled_auprc_p975": 0.5503116058725839,
+      "observed_minus_shuffled_auprc": 0.003633384539909801,
+      "observed_brier": 0.13050070469070887,
+      "shuffled_brier_mean": 0.13081581620152527,
+      "observed_minus_shuffled_brier": -0.000315111510816396,
+      "mean_abs_prediction_change": 0.00316307358671816,
+      "shuffled_fraction_at_least_observed_auprc": 0.05
+    },
+    {
+      "variant": "stage8_dense_fixed",
+      "shuffle_mode": "all_patients",
+      "permutations": 100,
+      "observed_auprc": 0.5483022192477878,
+      "shuffled_auprc_mean": 0.5459220394891567,
+      "shuffled_auprc_p025": 0.5444191878313863,
+      "shuffled_auprc_p975": 0.547879224478512,
+      "observed_minus_shuffled_auprc": 0.002380179758631029,
+      "observed_brier": 0.15589397061742374,
+      "shuffled_brier_mean": 0.15594428066500327,
+      "observed_minus_shuffled_brier": -5.031004757952151e-05,
+      "mean_abs_prediction_change": 0.0010049033599848652,
+      "shuffled_fraction_at_least_observed_auprc": 0.01
+    },
+    {
+      "variant": "stage8_dense_fixed",
+      "shuffle_mode": "same_age_quartile",
+      "permutations": 100,
+      "observed_auprc": 0.5483022192477878,
+      "shuffled_auprc_mean": 0.5460559870135065,
+      "shuffled_auprc_p025": 0.5443105130937417,
+      "shuffled_auprc_p975": 0.5478505569467332,
+      "observed_minus_shuffled_auprc": 0.00224623223428122,
+      "observed_brier": 0.15589397061742374,
+      "shuffled_brier_mean": 0.15592383078970126,
+      "observed_minus_shuffled_brier": -2.986017227751825e-05,
+      "mean_abs_prediction_change": 0.0009934649859510715,
+      "shuffled_fraction_at_least_observed_auprc": 0.0
+    }
+  ],
+  "caveats": [
+    "All comparisons are exploratory because validation was used to select checkpoints.",
+    "Fusion seed variation is limited to fusion heads; encoders share original fixed seed.",
+    "Image permutation is a negative control for patient-specific CXR signal, not proof of causal utility.",
+    "Shuffling image embeddings may break conditional dependencies not captured by the age-quartile control.",
+    "No test data, gradient updates, checkpoint writes, or optimizer states are used."
+  ]
+}
